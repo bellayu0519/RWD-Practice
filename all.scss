@@ -1,0 +1,349 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+%reset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* CSS Reset */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  @extend %reset;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Layout */
+.wrap {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.nav {
+  max-width: 1000px;
+  padding: 5px;
+  background-color: hsl(0, 41%, 84%);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+  ul {
+    margin-right: 20px;
+    display: flex;
+
+    img {
+      margin: 0 5px;
+    }
+
+    a {
+      margin: 5px;
+      text-decoration: none;
+      color: #545050e8;
+
+      &:hover {
+        border-bottom: 2px solid rgb(138, 75, 75);
+      }
+    }
+  }
+
+  .border-right {
+    border-right: 1px solid #000;
+    padding-right: 5px;
+  }
+}
+
+.header {
+  max-width: 1000px;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 30px;
+  width: 100%;
+  background-color: #fff;
+  border-bottom: 5px groove rgba(178, 151, 151, 0.828);
+
+  .logo {
+    a {
+      display: flex;
+      width: 210px;
+      height: 50px;
+      margin-top: 20px;
+      background-image: url(/images/logo.png);
+      background-repeat: no-repeat;
+    }
+  }
+
+  .menu {
+    ul {
+      width: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+    }
+
+    a {
+      text-decoration: none;
+      display: block;
+      line-height: 50px;
+      color: #538f80;
+      border-bottom: 10px solid transparent;
+
+      span {
+        color: rgb(183, 149, 14);
+      }
+
+      &:hover {
+        border-bottom: 5px solid #538f80;
+      }
+    }
+
+    .menu1,
+    .menu2 {
+      display: flex;
+      justify-content: space-evenly;
+      width: 300px;
+    }
+  }
+}
+
+.content-course {
+  max-width: 1000px;
+  margin-top: 150px;
+  display: flex;
+  justify-content: center;
+  gap: 0 30px;
+
+  > li {
+    width: 33%;
+  }
+
+  .course {
+    border-radius: 5px;
+    box-shadow: 0 10px 10px -5px gray;
+    border: 1px solid rgb(215, 210, 210);
+    padding: 23px 30px;
+    font-size: 16px;
+    line-height: 28px;
+
+    &:hover {
+      box-shadow: 0 0 20px rgb(127, 87, 91);
+      transition: 0.5s;
+    }
+
+    h3,
+    img {
+      text-align: center;
+      display: block;
+      margin: auto;
+      font-size: 20px;
+      padding: 10px 0;
+    }
+
+    &.course-jquery {
+      img {
+        margin-top: 20px;
+      }
+
+      ul {
+        padding-left: 16px;
+
+        li {
+          list-style-type: disc;
+        }
+      }
+    }
+  }
+}
+
+/* RWD */
+@media (max-width: 767px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+
+    .menu {
+      ul {
+        flex-wrap: wrap;
+      }
+    }
+
+    .logo {
+      a {
+        width: 400px;
+        height: 100px;
+        background-size: 110%;
+        background-position: center;
+      }
+    }
+  }
+
+  .content {
+    margin-top: 300px;
+  }
+
+  .content-course {
+    flex-direction: column;
+    align-items: center;
+
+    > li {
+      width: 85%;
+    }
+
+    .course {
+      margin-bottom: 20px;
+
+      img {
+        width: 50%;
+        height: auto;
+      }
+
+      h3 {
+        font-size: 25px;
+      }
+
+      p,
+      li {
+        font-size: 20px;
+      }
+    }
+  }
+
+  .menu ul {
+    flex-direction: column;
+  }
+}
